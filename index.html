@@ -17,12 +17,12 @@
       padding: 32px 16px 48px;
       text-align:center;
     }
-    .logo{
-      <!--width: min(900px, 92vw);-->
-      height: auto;
-      display:block;
-      margin: 8px auto 24px;
-    }
+   .logo{
+  max-width: 100%;   /* never overflow on mobile */
+  height: auto;
+  display: block;
+  margin: 0 auto 2px; /* centered + minimal spacing */
+}
     h1{
       margin: 0 0 8px;
       font-size: clamp(28px, 4vw, 44px);
