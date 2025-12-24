@@ -14,42 +14,45 @@
     .wrap{
       max-width: 1000px;
       margin: 0 auto;
-      padding: 20px 8px 3px;   /* reduced horizontal + vertical padding */
+      padding: 32px 16px 48px;
       text-align:center;
     }
     .logo{
-      margin: 0 auto;     /* tight spacing under logo */
-      text-align:center;
+      width: min(900px, 92vw);
+      height: auto;
+      display:block;
+      margin: 8px auto 24px;
     }
     h1{
-      margin: 0 0 4px;          /* remove default h1 spacing */
-      font-size: clamp(26px, 4vw, 40px);
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
       letter-spacing: 0.5px;
     }
     p{
-      margin: 0 0 6px;          /* tight spacing before 2nd image */
-      font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.4;
-      opacity: 0.85;
+      margin: 0 0 24px;
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.5;
+      opacity: 0.9;
     }
     .secondary-image{
-      width: min(840px, 96vw);  /* large + responsive */
+      width: min(800px, 90vw);
       height: auto;
       display:block;
-      margin: 4px auto 0;       /* pull image up */
+      margin: 0 auto;
+      border-radius: 12px; /* optional */
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Upload your logo image to the repo and set its exact filename here -->
-    <img class="logo" src="logo.png" alt="Toom & Tawook Logo" />
+    <!-- Top logo -->
+    <img class="logo" src="logo.png" alt="Toom & Tawook Logo">
 
-   <!-- <h1>toomandtawook.com</h1>
-    <p>We look forward to serving you soon!</p>-->
+    <h1>toomandtawook.com</h1>
+    <p>We look forward to serving you!</p>
 
-    <!-- Upload your second image to the repo and set its exact filename here -->
-    <img class="secondary-image" src="tnt.png" alt="TNT Sandwich" />
+    <!-- Image beneath the text -->
+    <img class="secondary-image" src="tnt.png" alt="Toom & Tawook">
   </div>
 </body>
 </html>
