@@ -47,6 +47,16 @@
       margin: 0 auto;
       border-radius: 0px; /* optional */
     }
+    .flash{
+  animation: flashText 1.2s infinite;
+}
+
+@keyframes flashText{
+  0%   { opacity: 1; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
   </style>
 </head>
 <body>
@@ -60,7 +70,7 @@
 </h1>
 
 </h1>
-    <p>We look forward to serving you!</p>
+    <p class="flash">We look forward to serving you soon!!</p>
 
     <!-- Image beneath the text -->
     <img class="secondary-image" src="tnt.png" alt="Toom & Tawook">
