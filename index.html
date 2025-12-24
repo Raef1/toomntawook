@@ -14,47 +14,44 @@
     .wrap{
       max-width: 1000px;
       margin: 0 auto;
-      padding: 0px 0px 0px;   /* reduced horizontal + vertical padding */
+      padding: 20px 8px 32px;   /* reduced horizontal + vertical padding */
       text-align:center;
     }
-   .logo{
-  width: min(920px, 96vw);
-  height: auto;
-
-  margin: 0 auto 2px;   /* was adding space below */
-}
-
-h1{
-  margin: 0;            /* default h1 margin was adding space */
-  font-size: clamp(26px, 4vw, 40px);
-  letter-spacing: 0.5px;
-}
-   p{
-  margin: 2px 0 2px;    /* space above & below text */
-  font-size: clamp(15px, 2vw, 18px);
-  line-height: 1.3;
-  opacity: 0.85;
-}
-
-.secondary-image{
-  width: min(840px, 96vw);
-  height: auto;
-  
-  margin: 0 auto;       /* removes top gap */
-}
-
+    .logo{
+      width: min(920px, 96vw);  /* large + responsive */
+      height: auto;
+      display:block;
+      margin: 4px auto 8px;     /* tight spacing under logo */
+    }
+    h1{
+      margin: 0 0 4px;          /* remove default h1 spacing */
+      font-size: clamp(26px, 4vw, 40px);
+      letter-spacing: 0.5px;
+    }
+    p{
+      margin: 0 0 6px;          /* tight spacing before 2nd image */
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.4;
+      opacity: 0.85;
+    }
+    .secondary-image{
+      width: min(840px, 96vw);  /* large + responsive */
+      height: auto;
+      display:block;
+      margin: 4px auto 0;       /* pull image up */
+    }
   </style>
 </head>
 <body>
-  <div>
+  <div class="wrap">
     <!-- Upload your logo image to the repo and set its exact filename here -->
     <img class="logo" src="logo.png" alt="Toom & Tawook Logo" />
 
-   
-    <p>We look forward to serving you soon!!!</p>
+   <!-- <h1>toomandtawook.com</h1>
+    <p>We look forward to serving you soon!</p>-->
 
     <!-- Upload your second image to the repo and set its exact filename here -->
-    <img class="secondary-image" src="tnt.png" alt="TNT Sandwich" />
+    <img class="secondary-image" src="second-image.png" alt="TNT Sandwich" />
   </div>
 </body>
 </html>
