@@ -18,7 +18,7 @@
       text-align:center;
     }
     .logo{
-      width: min(900px, 92vw);   /* large on desktop, responsive on mobile */
+      width: min(900px, 92vw);
       height: auto;
       display:block;
       margin: 8px auto 24px;
@@ -29,18 +29,29 @@
       letter-spacing: 0.5px;
     }
     p{
-      margin: 0;
+      margin: 0 0 24px;
       font-size: clamp(16px, 2.2vw, 20px);
       line-height: 1.5;
       opacity: 0.9;
+    }
+    .secondary-image{
+      width: min(800px, 90vw);
+      height: auto;
+      display:block;
+      margin: 0 auto;
+      border-radius: 12px; /* optional */
     }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- Top logo -->
     <img class="logo" src="logo.png" alt="Toom & Tawook Logo">
+
     <h1>toomandtawook.com</h1>
     <p>Website coming soon.</p>
+
+    <img class="secondary-image" src="tnt.png" alt="Toom & Tawook">
   </div>
 </body>
 </html>
