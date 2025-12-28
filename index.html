@@ -83,39 +83,29 @@
     }
 
     /* ============ MOBILE MENU ============ */
-    @media (max-width:768px){
-      .menu-toggle{
-        display:block;
-      }
+   @media (max-width:768px){
+  .menu-toggle{
+    display:block;
+  }
 
-      .nav-links{
-        display:flex;
-        flex-direction:column;
-        width:100%;
-        background:#000;
-        position:absolute;
-        top:56px;
-        left:0;
-        padding:10px 0;
-        border-top:1px solid #222;
+  .nav-links{
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background:#000;
+    flex-direction:column;
+    align-items:center;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
 
-        max-height:0;
-        overflow:hidden;
-        opacity:0;
-        transform: translateY(-6px);
-        transition: max-height 240ms ease, opacity 200ms ease, transform 200ms ease;
-      }
+  .nav-links.show{
+    max-height:320px;
+  }
+}
 
-      .nav-links li{
-        padding:12px 0;
-      }
-
-      .nav-links.show{
-        max-height:320px;
-        opacity:1;
-        transform: translateY(0);
-      }
-    }
 
     /* ================= PAGE ================= */
     .logo-img{
