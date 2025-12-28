@@ -31,19 +31,20 @@
       justify-content:space-between;
     }
 
-   .nav-logo{
+ .nav-logo{
   display:flex;
   align-items:center;
+  justify-content:flex-start;
 }
 
 .nav-logo-img{
-  height:42px;          /* controls menu height */
-  width:auto;           /* keeps aspect ratio */
-  max-width:140px;      /* prevents overflow */
-  object-fit:contain;
   display:block;
+  height:42px;
+  width:auto;
+  max-width:180px;
+  object-fit:contain;
+  margin:0;            /* IMPORTANT: no auto margins */
 }
-
 
     .nav-links{
       list-style:none;
