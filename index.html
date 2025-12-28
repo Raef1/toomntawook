@@ -25,40 +25,40 @@
 }
 
 .nav-container{
-  width:100%;          /* full width (no centering) */
-  max-width:none;      /* remove desktop max-width */
-  margin:0;            /* remove auto-centering */
-  padding:0 16px;      /* left/right breathing room */
+  width:100%;
+  margin:0;
+  padding:0 16px;
   display:flex;
-  flex-direction:column;
-  align-items:flex-start; /* keep logo on the left */
-  gap:8px;
+  align-items:center;
+  justify-content:space-between; /* LEFT / RIGHT split */
   position:relative;
 }
 
 
- .nav-logo{
+
+.nav-logo{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
 }
 
 .nav-logo-img{
-  display:block;
   height:42px;
   width:auto;
   max-width:180px;
   object-fit:contain;
-  margin:0;            /* IMPORTANT: no auto margins */
+  display:block;
+  margin:0;
 }
 
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap:24px;
-      margin:0;
-      padding:0;
-    }
+
+   .nav-links{
+  list-style:none;
+  display:flex;
+  gap:24px;
+  margin:0;
+  padding:0;
+}
+
 
     .nav-links a{
       color:#fff;
