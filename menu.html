@@ -1,0 +1,455 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Toom N Tawook - Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        :root {
+            --bg: #070707;
+            --panel: #0b0b0b;
+            --text: #ffffff;
+            --muted: #b8b8b8;
+            --line: rgba(255,255,255,.18);
+            --accent: #ff9f1c;
+            --price: #ff7a1a;
+            --title1: #ffb21f;
+            --title2: #ff6a1a;
+            --title3: #e33a18;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ================= NAV (same mobile open behavior as your reference) ================= */
+        .site-nav {
+            background: #000;
+            padding: 1px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            margin: 0;
+            padding: 0 24px; /* keep content inside frame */
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* logo left, links right */
+            position: relative;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 0;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 100px;
+            width: auto;
+            max-width: 400px;
+            object-fit: contain;
+            display: block;
+            background: transparent;
+            margin-left: -24px; /* matches your reference behavior */
+        }
+
+        /* Desktop links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+            .nav-links a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 16px;
+                padding: 6px 8px;
+                border-radius: 10px;
+                display: inline-block;
+                white-space: nowrap;
+            }
+
+                .nav-links a:hover {
+                    color: #ff3b00;
+                }
+
+        /* Hamburger button (hidden on desktop) */
+        .menu-toggle {
+            display: none;
+            width: 34px;
+            height: 26px;
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+            .menu-toggle span {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: #fff;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            }
+
+                .menu-toggle span:nth-child(1) {
+                    top: 0;
+                }
+
+                .menu-toggle span:nth-child(2) {
+                    top: 11px;
+                }
+
+                .menu-toggle span:nth-child(3) {
+                    bottom: 0;
+                }
+
+            /* X state */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg);
+                top: 11px;
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg);
+                bottom: 11px;
+            }
+
+        /* ============ MOBILE / TABLET MENU (FULL-WIDTH dropdown like your reference) ============ */
+        @media (max-width:1000px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #000;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                border-top: 1px solid #222;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(-6px);
+                transition: max-height 260ms ease, opacity 200ms ease, transform 200ms ease;
+            }
+
+                .nav-links li {
+                    width: 100%;
+                }
+
+                .nav-links a {
+                    width: 100%;
+                    padding: 14px 16px;
+                    border-radius: 0;
+                    font-size: 16px;
+                    text-align: center;
+                }
+
+                .nav-links.show {
+                    max-height: 360px;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+        }
+
+        /* ====== FANCY BORDER / FRAME AROUND WHOLE MENU ====== */
+        .wrap {
+            width: min(980px, 92vw);
+            margin: 32px auto;
+            padding: 44px 36px 52px;
+            border-radius: 26px;
+            background: linear-gradient(#050505, #050505) padding-box, linear-gradient( 135deg, #ffb21f, #ff7a1a, #e33a18, #ff9f1c ) border-box;
+            border: 3px solid transparent;
+            box-shadow: inset 0 0 40px rgba(255,120,30,.12), 0 28px 80px rgba(0,0,0,.9);
+        }
+
+
+        /* ====== LOGO IN MENU CONTENT ====== */
+        .menu-logo {
+            text-align: center;
+            margin-bottom: 20px;
+            background: var(--bg);
+        }
+
+            .menu-logo img {
+                max-width: 420px; /* BIGGER on desktop */
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                background: transparent;
+                mix-blend-mode: screen; /* seamless black blending */
+            }
+
+
+        @media (max-width:600px) {
+            .menu-logo img {
+                max-width: 280px;
+            }
+        }
+
+
+        /* ====== SECTION TITLE ====== */
+        .section {
+            margin-top: 34px;
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        /* ====== MENU ROWS ====== */
+        .item {
+            padding: 18px 0;
+            border-top: 1px solid var(--line);
+        }
+
+            .item:last-child {
+                border-bottom: 1px solid var(--line);
+            }
+
+        .item-top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .item-name {
+            margin: 0;
+            font-size: clamp(20px, 2.6vw, 30px);
+            font-weight: 900;
+            color: var(--text);
+        }
+
+        .item-price {
+            margin: 0;
+            font-size: clamp(20px, 2.6vw, 30px);
+            font-weight: 900;
+            color: var(--price);
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: clamp(15px, 1.7vw, 20px);
+            line-height: 1.45;
+        }
+
+        /* ====== SPICY ICON NEXT TO "THE TNT" ====== */
+        .spicy {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spicy-icon {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 0 2px rgba(255,0,0,.6));
+            transform: translateY(2px);
+        }
+
+        /* ====== MOBILE ====== */
+        @media (max-width:520px) {
+            .wrap {
+                border-radius: 16px;
+                padding: 28px 20px 36px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAV ================= -->
+    <nav class="site-nav">
+        <div class="nav-container">
+
+            <a class="nav-logo" href="index.html#home" aria-label="Go to Home">
+                <img src="text.png" alt="Toom n Tawook" class="nav-logo-img">
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#locations">Locations</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- ================= MENU CONTENT ================= -->
+    <main class="wrap">
+        <div class="menu-logo">
+            <img src="nav-img1.png" alt="Toom N Tawook Logo">
+        </div>
+
+        <section class="section" id="sandwiches">
+            <h2 class="section-title">Sandwiches</h2>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">
+                        <span class="spicy">
+                            The TnT
+                            <img src="red-pepper.png" alt="Spicy" class="spicy-icon">
+                        </span>
+                    </h3>
+                    <p class="item-price">$9.99</p>
+                </div>
+                <p class="item-desc">
+                    It’s spicy! Spicily marinated chicken chunks, French fries, pickles, and garlic sauce wrapped in grilled pita bread.
+                </p>
+            </div>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">Tawook Sandwich</h3>
+                    <p class="item-price">$10.49</p>
+                </div>
+                <p class="item-desc">
+                    Grilled, marinated chicken chunks, pickles, and garlic sauce wrapped in grilled pita bread.
+                </p>
+            </div>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">French Fry Sandwich</h3>
+                    <p class="item-price">$10.49</p>
+                </div>
+                <p class="item-desc">
+                    French fries, cole slaw, pickles, ketchup, and garlic sauce wrapped in warm pita bread.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="platters">
+            <h2 class="section-title">Bowls</h2>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">TnT Fries</h3>
+                    <p class="item-price">$14.99</p>
+                </div>
+                <p class="item-desc">
+                    French fries topped with grilled, marinated chicken chunks, cole slaw, pickles, and garlic sauce
+                </p>
+            </div>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">TnT Hummus</h3>
+                    <p class="item-price">$14.99</p>
+                </div>
+                <p class="item-desc">
+                    Creamy hummus topped with grilled, marinated chicken chunks and a side of garlic sauce and pita bread
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="sides">
+            <h2 class="section-title">Sides</h2>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">French Fries</h3>
+                    <p class="item-price">$3.99</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">Garlic Sauce</h3>
+                    <p class="item-price">$1.50</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-top">
+                    <h3 class="item-name">Hummus</h3>
+                    <p class="item-price">$1.50</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= JS ================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('.menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+            const nav = document.querySelector('.site-nav');
+
+            if (!toggle || !navLinks || !nav) return;
+
+            const closeMenu = () => {
+                navLinks.classList.remove('show');
+                toggle.classList.remove('active');
+            };
+
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('show');
+                toggle.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target)) closeMenu();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+        });
+    </script>
+
+</body>
+</html>
